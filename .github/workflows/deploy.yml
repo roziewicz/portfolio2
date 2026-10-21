@@ -18,4 +18,6 @@ jobs:
           server: s86.mydevil.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: sftp
+          port: 22
           server-dir: /domains/roziewicz.com/public_html/
