@@ -12,11 +12,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Sync Files to MyDevil
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy via SFTP
+        uses: easingthemes/ssh-deploy@v5.0.0
         with:
-          server: s86.mydevil.net
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          server-dir: /domains/roziewicz.com/public_html/
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: s86.mydevil.net
+          REMOTE_USER: paniedzieju
+          TARGET: /home/paniedzieju/domains/roziewicz.com/public_html/
